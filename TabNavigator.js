@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Feed from "../screens/Feed";
-import CreateStory from "../screens/CreateStory";
+import task from "../screens/task";
+import createlist from "../screens/createlist";
 
 const Tab = createBottomTabNavigator();
 
@@ -12,11 +12,11 @@ const BottomTabNavigator = ()=>{
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
-            if (route.name === 'Feed') {
+            if (route.name === 'task') {
               iconName = focused
                 ? 'book'
                 : 'book-outline';
-            } else if (route.name === 'CreateStory') {
+            } else if (route.name === 'createlist') {
               iconName = focused ? 'create' : 'create-outline';
             }
             return <Ionicons name={iconName} size={size} color={color} />;
@@ -27,8 +27,8 @@ const BottomTabNavigator = ()=>{
           inactiveTintColor: 'gray',
         }}
       >
-        <Tab.Screen name="Feed" component={Feed} />
-        <Tab.Screen name="CreateStory" component={CreateStory} />
+        <Tab.Screen name="task" component={task} />
+        <Tab.Screen name="createlist" component={createlist} />
       </Tab.Navigator>
   );
 }
